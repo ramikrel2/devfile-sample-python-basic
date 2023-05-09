@@ -3,9 +3,15 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def hello():
-    return "Hello World!"
+    return {'ok': 'fine'}
+
+
+@app.route("/large")
+def large():
+    return {'ok': '1234' * 20000}
+
 
 if __name__ == '__main__':
     port = os.environ.get('FLASK_PORT') or 8080
